@@ -1,16 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyWebsite.DAL.Context;
+using MyWebsite.DAL.Entities;
 
 namespace MyWebsite.Controllers
 {
-    public class DAboutController:Controller
+    public class DaboutController : Controller
     {
         MyWebsiteContext context = new MyWebsiteContext();
-        public IActionResult DAbout()
-
+       
+            public IActionResult About()
         {
-            var values = context.Abouts.ToList().FirstOrDefault();
-            return View(values); 
+            // About nesnelerinin listesi
+            //List<About> aboutList = context.Abouts.ToList();
+            //return View(aboutList);
+        
+          
+            // About nesnelerinin listesi
+            List<About> aboutList = context.Abouts.ToList();
+                return View(aboutList);
+            
+
+
         }
+
+
+
     }
 }

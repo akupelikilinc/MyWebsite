@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyWebsite.DAL.Context;
+using MyWebsite.DAL.Entities;
 
 namespace MyWebsite.Controllers
 {
@@ -7,6 +9,9 @@ namespace MyWebsite.Controllers
         
         public IActionResult Index()
         {
+            MyWebsiteContext context = new MyWebsiteContext();
+            ViewBag.v  = context.Abouts.ToList().FirstOrDefault();
+                       
             return View();
         }
 
