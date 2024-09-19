@@ -12,15 +12,17 @@ namespace MyWebsite.Controllers
             public IActionResult About()
         {
             // About nesnelerinin listesi
-            //List<About> aboutList = context.Abouts.ToList();
-            //return View(aboutList);
-        
-          
-            // About nesnelerinin listesi
             List<About> aboutList = context.Abouts.ToList();
                 return View(aboutList);
             
+        }
 
+        public IActionResult Create(About about)
+        {
+            context.Abouts.Add(about);
+            context.SaveChanges();
+            return View(about);
+            
 
         }
 
